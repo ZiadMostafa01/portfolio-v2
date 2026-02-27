@@ -8,7 +8,7 @@ function Footer() {
             className="bg-gradient-to-br from-white to-zinc-500 bg-clip-text text-3xl/[1.07] mb-5 font-bold tracking-tight text-transparent md:text-3xl/[1.07]"
             style={{ opacity: 1, transform: "none" }}
           >
-            <span className="animate-pulse text-blue-400 drop-shadow-[0_0_15px_rgba(59,130,246,0.8)] to-blue-300 font-DGAsca">
+            <span className="animate-pulse text-indigo-400 drop-shadow-[0_0_30px_rgba(192,132,252,0.5)] to-purple-100 font-DGAsca">
               Ziad Mostafa
             </span>
           </a>

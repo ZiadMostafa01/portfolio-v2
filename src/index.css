@@ -4,15 +4,13 @@ body {
   scroll-behavior: smooth;
   font-family: font-poppins;
   overflow-x: hidden;
+  background-color: #020617; /* نفس لون الـ bg-slate-950 بتاعك */
+  color-scheme: dark;
 }
 
 @font-face {
   font-family: "DGAsca";
   src: url("./assets/fonts/DG-Aqsa-italic.ttf") format("truetype");
-}
-@font-face {
-  font-family: "poppins";
-  src: url("./assets/fonts/poppins.medium.ttf") format("truetype");
 }
 
 @theme {
@@ -21,10 +19,12 @@ body {
 }
 
 :root {
-  /* Background Color */
-  --bg-primary-dark: rgb(9, 9, 11);
+  --main-icon: #a855f7;
 
-  --bg-primary-light: rgb(9, 9, 11);
+  /* Background Color */
+  --bg-primary: #020617;
+
+  --bg-primary-light: rgb(255, 255, 255);
 
   /* Background Cards */
   --bg-card-dark: rgb(30, 30, 31, 0.5);
@@ -39,4 +39,163 @@ body {
   --text-title-light: rgb(203, 213, 225);
   --text-subtitle-light: rgba(159, 159, 169, 0.8);
   --text-main-light: rgb(255, 255, 255);
+
+  /* =================================== */
+  --primary: #c084fc;
+
+  --gradient-1: linear-gradient(135deg, #c084fc 0%, #a78bfa 50%, #67e8f9 100%);
+  --gradient-2: linear-gradient(135deg, #67e8f9 0%, #a78bfa 50%, #fbbf24 100%);
+  --gradient-3: linear-gradient(135deg, #86efac 0%, #67e8f9 100%);
+
+}
+.light{
+    --bg-primary: #eee;
+
+}
+
+@theme {
+  --color-primary: #c084fc;
+  --font-code: "Fira Code", monospace;
+  --gradient-1: linear-gradient(135deg, #c084fc 0%, #6366f1 100%);
+
+}
+
+
+
+
+/* Icon - Spin */
+@keyframes spin-once {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.25);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.animate-spin-once {
+  animation: spin-once 1.2s ease-in-out forwards;
+}
+
+/* Grid - Background */
+
+.code-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--primary) 1px, transparent 1px),
+    linear-gradient(90deg, var(--primary) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.05;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes scrollWheel {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+
+
+.name-value {
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Floating-Badge */
+
+@keyframes floatBadge {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.floating-badge {
+  animation: floatBadge 3s ease-in-out infinite;
+}
+/* الحركة للأسفل */
+@keyframes particleFall {
+  0% {
+    transform: translateY(0vh) rotate(0deg);
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* الحركة للأعلى */
+@keyframes particleRise {
+  0% {
+    transform: translateY(0vh) rotate(0deg);
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+.animate-particle-fall {
+  animation: particleFall linear infinite;
+}
+
+.animate-particle-rise {
+  animation: particleRise linear infinite;
 }

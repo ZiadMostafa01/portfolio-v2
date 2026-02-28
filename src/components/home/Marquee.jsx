@@ -1,12 +1,12 @@
 import Marquee from "react-fast-marquee";
-import JavaScriptDarkMode from "../assets/images/skills-icons/JavaScript-Icon-Light.png";
-import HtmlDarkMode from "../assets/images/skills-icons/Html5-Icon-Light.png";
-import CSSDarkMode from "../assets/images/skills-icons/CSS3-Icon-Light.png";
-import TailwindDarkMode from "../assets/images/skills-icons/Tailwind-Icon-Light.png";
-import ReactDarkMode from "../assets/images/skills-icons/React-Icon-Light.png";
-import NodeDarkMode from "../assets/images/skills-icons/Node-Icon-Light.png";
-import BootstrapDarkMode from "../assets/images/skills-icons/Bootstrap-Icon-Light.png";
-import MongoDBDarkMode from "../assets/images/skills-icons/MongoDB-Icon-Light.png";
+import JavaScriptDarkMode from "../../assets/images/skills-icons/JavaScript-Icon-Light.png";
+import HtmlDarkMode from "../../assets/images/skills-icons/Html5-Icon-Light.png";
+import CSSDarkMode from "../../assets/images/skills-icons/CSS3-Icon-Light.png";
+import TailwindDarkMode from "../../assets/images/skills-icons/Tailwind-Icon-Light.png";
+import ReactDarkMode from "../../assets/images/skills-icons/React-Icon-Light.png";
+import NodeDarkMode from "../../assets/images/skills-icons/Node-Icon-Light.png";
+import BootstrapDarkMode from "../../assets/images/skills-icons/Bootstrap-Icon-Light.png";
+import MongoDBDarkMode from "../../assets/images/skills-icons/MongoDB-Icon-Light.png";
 
 function BrandSlider() {
   return (

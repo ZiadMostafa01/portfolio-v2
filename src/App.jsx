@@ -1,11 +1,5 @@
 import { useEffect, useState } from "react";
-import Landing from "./components/Landing";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
-import Certificates from "./components/Certificates";
 import Loader from "./components/Loader";
-import Header from "./components/Header";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Home from "./pages/Home";

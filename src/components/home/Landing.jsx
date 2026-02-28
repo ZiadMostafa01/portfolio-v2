@@ -1,4 +1,4 @@
-import Particles from "./Particles";
+import Particles from "../Particles";
 import { Typewriter } from "react-simple-typewriter";
 
 const Landing = () => {

@@ -1,4 +1,4 @@
-import personalPhoto from "../assets/images/personalphoto.png";
+import personalPhoto from "../../assets/images/personalphoto.png";
 import BrandSlider from "./Marquee";
 
 const mySkills = [
@@ -20,10 +20,7 @@ const mySkills = [
 ];
 function About() {
   return (
-    <section
-      id="About"
-      className=" text-[var(--text-main-dark)] py-10"
-    >
+    <section id="About" className=" text-[var(--text-main-dark)] py-10">
       <div
         data-aos="fade-up"
         className="relative mx-auto mt-16 max-w-full pt-10 lg:px-8"
@@ -40,7 +37,6 @@ function About() {
             md:max-w-[600px]"
         ></div>
         <div className="relative isolate">
- 
           {/* Info */}
           <div className="mx-auto max-w-xl text-center">
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--text-title-dark)]">
@@ -152,17 +148,6 @@ function About() {
 
       <div className="absolute xl:left-10 2xl:left-40 -mt-40 xl:w-[59%] 2xl:w-[50%] hidden xl:flex">
         <BrandSlider />
-      </div>
-
-      {/* BackgroundEffect */}
-      <div className="absolute inset-x-0 top-10 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl">
-        <div
-          className="aspect-[1108/632] w-[69.25rem] flex-none bg-gradient-to-r from-cyan-500 to-blue-800 opacity-20"
-          style={{
-            clipPath:
-              "polygon(77.5% 40.13%, 90% 10%, 100% 50%, 95% 80%, 92% 85%, 75% 65%, 61.26% 54.7%, 50% 54.7%, 47.24% 65.81%, 50% 85%, 26.16% 73.91%, 0.1% 100%, 1% 40.13%, 20% 48.75%, 60% 0.25%, 67.5% 32.63%)",
-          }}
-        ></div>
       </div>
     </section>
   );

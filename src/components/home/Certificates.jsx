@@ -1,16 +1,16 @@
 import { useState } from "react";
 
-import cert1 from "../assets/images/certificates/cert1.jpg";
-import cert2 from "../assets/images/certificates/cert2.png";
-import cert3 from "../assets/images/certificates/cert3.png";
-import cert4 from "../assets/images/certificates/cert4.png";
-import cert5 from "../assets/images/certificates/cert5.png";
-import cert6 from "../assets/images/certificates/cert6.jpg";
-import cert7 from "../assets/images/certificates/cert7.jpg";
-import cert8 from "../assets/images/certificates/cert8.png";
-import cert9 from "../assets/images/certificates/cert9.png";
-import cert10 from "../assets/images/certificates/cert10.png";
-import cert11 from "../assets/images/certificates/cert11.jpg";
+import cert2 from "../../assets/images/certificates/cert2.png";
+import cert1 from "../../assets/images/certificates/cert1.jpg";
+import cert3 from "../../assets/images/certificates/cert3.png";
+import cert4 from "../../assets/images/certificates/cert4.png";
+import cert5 from "../../assets/images/certificates/cert5.png";
+import cert6 from "../../assets/images/certificates/cert6.jpg";
+import cert7 from "../../assets/images/certificates/cert7.jpg";
+import cert8 from "../../assets/images/certificates/cert8.png";
+import cert9 from "../../assets/images/certificates/cert9.png";
+import cert10 from "../../assets/images/certificates/cert10.png";
+import cert11 from "../../assets/images/certificates/cert11.jpg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, EffectCoverflow } from "swiper/modules";

@@ -85,7 +85,7 @@ function About() {
         <div className="space-y-5 mx-auto xl:mx-0 px-5 md:px-0">
           <div data-aos="fade-right" data-aos-duration="1000">
             {" "}
-            <div className="bg-[var(--bg-card)] space-y-5 border border-[var(--border)] p-10 xl:w-[450px] rounded-2xl   hover:border-cyan-500 hover:-translate-y-2 transition duration-300 hover:shadow-[0_0_40px_rgba(34,211,238,0.9)]">
+            <div className="bg-[var(--bg-card)] space-y-5 border hover:border-[var(--primary)] hover:shadow-[0_0_60px_rgba(168,85,247,0.9)] border-[var(--border)] p-10 xl:w-[450px] rounded-2xl hover:-translate-y-2 transition duration-300">
               <h2 className="font-bold text-2xl">Experience</h2>
 
               <div className="relative border-l-2 border-gray-300 pl-6">
@@ -115,7 +115,7 @@ function About() {
           </div>
           <div data-aos="fade-left" data-aos-duration="1000">
             {" "}
-            <div className="bg-[var(--bg-card)] space-y-2 border border-[var(--border)] p-10 xl:w-[450px] rounded-2xl  hover:border-cyan-500 hover:-translate-y-2 transition duration-300 hover:shadow-[0_0_40px_rgba(34,211,238,0.9)]">
+            <div className="bg-[var(--bg-card)] space-y-2 border hover:border-[var(--primary)] hover:shadow-[0_0_60px_rgba(168,85,247,0.9)] border-[var(--border)] p-10 xl:w-[450px] rounded-2xl  hover:-translate-y-2 transition duration-300">
               <h2 className="font-bold text-2xl">Education</h2>
               <div>
                 <h3>Fayoum University | 2024 - present</h3>
@@ -124,7 +124,7 @@ function About() {
             </div>
           </div>
           <div data-aos="fade-right" data-aos-duration="1000">
-            <div className="bg-[var(--bg-card)] border space-y-2  border-[var(--border)] py-5 px-10 xl:w-[450px] rounded-2xl  hover:border-cyan-500 hover:-translate-y-2 transition duration-300 hover:shadow-[0_0_40px_rgba(34,211,238,0.9)]">
+            <div className="bg-[var(--bg-card)] border space-y-2  hover:border-[var(--primary)] hover:shadow-[0_0_60px_rgba(168,85,247,0.9)] border-[var(--border)] py-5 px-10 xl:w-[450px] rounded-2xl   hover:-translate-y-2 transition duration-300 ">
               <h2 className="font-bold text-2xl">Skills</h2>
               <div className="flex flex-wrap gap-2">
                 {mySkills.map((skill, index) => (

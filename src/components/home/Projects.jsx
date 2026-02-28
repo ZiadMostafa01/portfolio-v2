@@ -9,7 +9,7 @@ const checkTools = {
   completed: "bg-green-500 rounded-full text-center font-semibold w-fit px-3",
   underDevelop: "bg-red-500 rounded-full text-center font-semibold w-fit px-3",
 };
-const tools = "bg-zinc-600 text-center rounded-full px-3";
+const tools = "bg-[var(--bg-card)] text-center rounded-full px-3";
 
 const myProjects = [
   {
@@ -132,7 +132,7 @@ function Projects() {
               <div key={item.id} data-aos="zoom-in">
                 <div
                   key={item.projectTitle}
-                  className="bg-[var(--bg-card)] border hover:border-cyan-500 transition duration-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.7)] border-[var(--border)] rounded-lg w-full max-w-[460px]"
+                  className="bg-[var(--bg-card)] border transition duration-300 hover:border-[var(--primary)] hover:shadow-[0_0_20px_rgba(168,85,247,0.9)] border-[var(--border)] rounded-lg w-full max-w-[460px]"
                 >
                   <div className="">
                     <img
@@ -142,7 +142,7 @@ function Projects() {
                     />
                     <div className="px-7 py-6">
                       <div className="mb-5">
-                        <h1 className="font-bold">{item.projectTitle}</h1>
+                        <h1 className="font-bold text-[var(--text-title)]">{item.projectTitle}</h1>
                         <p>{item.description}</p>
                       </div>
 
@@ -158,7 +158,7 @@ function Projects() {
                           ))}
                         </ul>
                       </div>
-                      <div className="bg-zinc-700 h-[1px] mb-3"></div>
+                      <div className="bg-[var(--bg-card)] h-[1px] mb-3"></div>
 
                       <div className="flex justify-between">
                         <a

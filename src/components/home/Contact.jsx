@@ -44,12 +44,12 @@ function Contact() {
 
         <div className="relative z-0 flex flex-col md:flex-row justify-center md:justify-between items-center px-[3%] md:px-[10%]">
           <div data-aos="fade-up">
-            <div className="bg-[var(--bg-card)] space-y-5 border border-[var(--border)] p-10 lg:w-[800px] rounded-2xl hover:border-[var(--primary)] hover:-translate-y-2 transition duration-300 hover:shadow-[0_0_60px_rgba(168,85,247,0.9)]">
+            <div className="bg-[var(--bg-card)] space-y-5 border border-[var(--border)] p-10 lg:w-[800px] rounded-2xl hover:border-[var(--primary)] hover:shadow-[0_0_60px_rgba(168,85,247,0.9)] hover:-translate-y-2 transition duration-300 ">
               <div className="space-y-5  rounded-2xl">
                 <h2 className="font-bold text-2xl">Contact Information</h2>
                 <div className="flex space-y-3 space-x-5 flex-wrap justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="flex justify-center items-center text-center bg-gray-300 w-10 h-10 rounded-full">
+                    <div className="flex justify-center items-center text-center bg-[var(--bg-card)] w-10 h-10 rounded-full">
                       <i className="fas fa-map-marker-alt text-[var(--primary)]"></i>
                     </div>
                     <div>
@@ -58,7 +58,7 @@ function Contact() {
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="flex justify-center items-center text-center bg-gray-300 w-10 h-10 rounded-full">
+                    <div className="flex justify-center items-center text-center bg-[var(--bg-card)] w-10 h-10 rounded-full">
                       <i className="fas fa-envelope text-[var(--primary)]"></i>
                     </div>
                     <div>
@@ -72,7 +72,7 @@ function Contact() {
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="flex justify-center items-center text-center bg-gray-300 w-10 h-10 rounded-full">
+                    <div className="flex justify-center items-center text-center bg-[var(--bg-card)] w-10 h-10 rounded-full">
                       <i className="fas fa-phone text-[var(--primary)]"></i>
                     </div>
                     <div>
@@ -110,7 +110,7 @@ function Contact() {
                       id="name"
                       name="name"
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-[var(--border)] text-blue-300 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] "
+                      className="w-full px-4 py-3 rounded-lg border border-[var(--border)] text-purple-300 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] "
                     />
                     <ValidationError
                       prefix="Name"
@@ -130,7 +130,7 @@ function Contact() {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-[var(--border)] text-blue-300 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] "
+                      className="w-full px-4 py-3 rounded-lg border border-[var(--border)] text-purple-300 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] "
                     />
                     <ValidationError
                       prefix="Email"
@@ -150,7 +150,7 @@ function Contact() {
                       id="message"
                       required
                       rows={5}
-                      className="w-full px-4 py-3 rounded-lg  border border-[var(--border)] text-blue-300 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] "
+                      className="w-full px-4 py-3 rounded-lg  border border-[var(--border)] text-purple-300 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] "
                     />
                     <ValidationError
                       prefix="Message"

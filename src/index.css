@@ -27,6 +27,7 @@ body {
 
 :root {
   --primary: #c084fc;
+  --secondary: #57379C;
 
   /* Background Color */
   --bg-primary: #020617;

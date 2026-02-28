@@ -132,7 +132,7 @@ function Projects() {
               <div key={item.id} data-aos="zoom-in">
                 <div
                   key={item.projectTitle}
-                  className="bg-[var(--bg-card)] border hover:border-cyan-500 transition duration-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.7)] border-zinc-700 rounded-lg w-full max-w-[460px]"
+                  className="bg-[var(--bg-card)] border hover:border-cyan-500 transition duration-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.7)] border-[var(--border)] rounded-lg w-full max-w-[460px]"
                 >
                   <div className="">
                     <img

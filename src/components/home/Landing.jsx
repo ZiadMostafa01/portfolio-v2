@@ -68,6 +68,32 @@ const Landing = () => {
               data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}
               data-aos-delay="500"
             >
+              <button
+                type="submit"
+                className="flex items-center gap-2 border-2 border-[#57379C] bg-[#57379C] hover:bg-[#57379C] text-white font-bold px-8 py-4 cursor-pointer hover:-translate-y-1 hover:shadow-[0_3px_10px_rgba(168,85,247,0.9)] transition duration-300 rounded-lg py-3 "
+              >
+                <span>{t("landing.buttons.downloadCV")}</span>
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17 17H17.01M17.4 14H18C18.9319 14 19.3978 14 19.7654 14.1522C20.2554 14.3552 20.6448 14.7446 20.8478 15.2346C21 15.6022 21 16.0681 21 17C21 17.9319 21 18.3978 20.8478 18.7654C20.6448 19.2554 20.2554 19.6448 19.7654 19.8478C19.3978 20 18.9319 20 18 20H6C5.06812 20 4.60218 20 4.23463 19.8478C3.74458 19.6448 3.35523 19.2554 3.15224 18.7654C3 18.3978 3 17.9319 3 17C3 16.0681 3 15.6022 3.15224 15.2346C3.35523 14.7446 3.74458 14.3552 4.23463 14.1522C4.60218 14 5.06812 14 6 14H6.6M12 15V4M12 15L9 12M12 15L15 12"
+                    stroke="currentColor" // التغيير هنا
+                    strokeWidth="2" // تأكد أنها strokeWidth في React (CamelCase)
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+            {/* <div
+              data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}
+              data-aos-delay="500"
+            >
               {" "}
               <a
                 href={cv}
@@ -91,7 +117,7 @@ const Landing = () => {
                   />
                 </svg>
               </a>
-            </div>
+            </div> */}
             <div
               data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}
               data-aos-delay="600"
@@ -99,7 +125,7 @@ const Landing = () => {
               {" "}
               <a
                 href="#Projects"
-                className="flex items-center gap-2 bg-white/5 border-2 border-[var(--primary)] text-[var(--primary)] px-8 py-4 rounded-xl font-bold hover:bg-[var(--primary)] hover:text-white transition-all hover:-translate-y-1"
+                className="flex items-center gap-2 bg-white/5 border-2 border-[var(--secondary)] text-[var(--primary)] px-8 py-4 rounded-xl font-bold hover:bg-[var(--secondary)] hover:text-white transition-all hover:-translate-y-1"
               >
                 <span>{t("landing.buttons.viewWork")}</span>
                 <i className="fas fa-code"></i>
@@ -239,7 +265,7 @@ const Landing = () => {
           data-aos="fade-up"
           data-aos-offset="0"
           key={i18n.language}
-          className="relative flex justify-center items-center"
+          className="relative flex justify-center items-center pb-10 lg:pb-0"
         >
           {/* الدائرة الكبيرة الثابتة */}
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px]">

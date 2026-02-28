@@ -51,8 +51,7 @@ const Landing = () => {
             data-aos-delay="300"
             className="text-gradient font-code  text-xl sm:text-2xl mb-8"
           >
-            <span className=" text-[#94a3b8] mr-2">//</span>
-            <span>Full Stack Developer & UI/UX Designer</span>
+            <span>// Full Stack Developer & UI/UX Designer</span>
           </div>
 
           <p
@@ -70,7 +69,7 @@ const Landing = () => {
             >
               <button
                 type="submit"
-                className="flex items-center gap-2 border-2 border-[#57379C] bg-[#57379C] hover:bg-[#57379C] text-white font-bold px-8 py-4 cursor-pointer hover:-translate-y-1 hover:shadow-[0_3px_10px_rgba(168,85,247,0.9)] transition duration-300 rounded-lg py-3 "
+                className="flex items-center gap-2 border-2 border-[var(--secondary)] bg-[var(--secondary)] hover:bg-[#57379C] text-white font-bold px-8 py-4 cursor-pointer hover:-translate-y-1 hover:shadow-[0_3px_10px_rgba(168,85,247,0.9)]  transition duration-300 rounded-lg"
               >
                 <span>{t("landing.buttons.downloadCV")}</span>
                 <svg
@@ -125,7 +124,7 @@ const Landing = () => {
               {" "}
               <a
                 href="#Projects"
-                className="flex items-center gap-2 bg-white/5 border-2 border-[var(--secondary)] text-[var(--primary)] px-8 py-4 rounded-xl font-bold hover:bg-[var(--secondary)] hover:text-white transition-all hover:-translate-y-1"
+                className="flex items-center gap-2 bg-white/5 border-2 border-[var(--border)] hover:border-[var(--primary)] hover:shadow-[0_0_30px_rgba(192,132,252,0.5)] text-[var(--primary)] px-8 py-4 rounded-xl font-bold   transition-all hover:-translate-y-1"
               >
                 <span>{t("landing.buttons.viewWork")}</span>
                 <i className="fas fa-code"></i>

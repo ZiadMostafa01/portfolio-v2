@@ -92,7 +92,7 @@ const Nav = () => {
       >
         {/* المربع البنفسجي المتحرك */}
         <div
-          className="absolute top-1 bottom-1 left-1 bg-[var(--primary)]/30 rounded-lg transition-all duration-300 ease-in-out pointer-events-none"
+          className="absolute top-1 bottom-1 left-1 bg-[var(--secondary)] rounded-lg transition-all duration-300 ease-in-out pointer-events-none"
           style={{
             width: `${hoverStyle.width}px`,
             transform: hoverStyle.transform,
@@ -109,8 +109,8 @@ const Nav = () => {
                 onClick={() => setActiveIndex(index)}
                 className={`block px-6 py-2 cursor-pointer transition-colors duration-200 ${
                   activeIndex === index
-                    ? "text-[var(--nav-bg)]"
-                    : "hover:text-[var(--nav-bg)]"
+                    ? "text-white"
+                    : "hover:text-[var(--text-main)]"
                 }`}
               >
                 {item.name}

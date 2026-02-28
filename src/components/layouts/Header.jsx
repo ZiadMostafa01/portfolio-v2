@@ -42,34 +42,27 @@ function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [language, setLanguage] = useState("English");
-
-  const toggleDropdown = () => setIsOpen(!isOpen);
-
-  const selectLanguage = (lang) => {
-    setLanguage(lang);
-    setIsOpen(false);
-    // هنا ممكن تضيف المنطق الخاص بتغيير لغة الموقع فعلياً (i18n)
-  };
-
   const { t, i18n } = useTranslation();
-  const [lang, setLang] = useState(localStorage.getItem("lang") ?? "en");
-
   const toggleLang = () => {
-    const newLang = lang === "en" ? "ar" : "en";
-    setLang(newLang);
+    const newLang = i18n.language === "en" ? "ar" : "en";
+
     i18n.changeLanguage(newLang);
     localStorage.setItem("lang", newLang);
-    document.documentElement.dir = newLang === "en" ? "ltr" : "rtl";
+    document.documentElement.dir = newLang === "ar" ? "rtl" : "ltr";
   };
-
   useEffect(() => {
-    document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
-  }, [lang]);
+    const savedLang = localStorage.getItem("lang") || "en";
+
+    if (i18n.language !== savedLang) {
+      i18n.changeLanguage(savedLang);
+    }
+
+    document.documentElement.dir = savedLang === "ar" ? "rtl" : "ltr";
+  }, []);
+
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-400 ${scrolled ? "bg-[#020617]/70 backdrop-blur-md shadow-lg" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-400 ${scrolled ? "bg-[var(--header-bg)]/70 backdrop-blur-md shadow-lg" : "bg-transparent"}`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
@@ -77,20 +70,20 @@ function Header() {
           href="#Home"
           className="bg-gradient-to-br from-white to-zinc-500 bg-clip-text text-2xl sm:text-3xl font-bold text-transparent"
         >
-          <span className="animate-pulse text-purple-500 drop-shadow-[0_0_30px_rgba(192,132,252,0.5)] to-purple-100 font-DGAsca">
-            Ziad Mostafa
+          <span className="animate-pulse text-gradient w-fit px-1 drop-shadow-[0_0_30px_rgba(192,132,252,0.5)] font-DGAsca inline-block">
+            {t("header.firstName")} {t("header.secondName")}
           </span>
         </a>
 
         {/* Desktop Navigation */}
-        <div className="flex items-center gap-3">
+        <div key={i18n.language} className="flex items-center gap-3">
           <Nav />
 
           <div className="relative hidden md:inline-block text-left">
             {/* الزر الرئيسي */}
-            <div
-              onClick={toggleDropdown}
-              className="text-gray-300 border-white/10 bg-white/5 flex gap-2 items-center px-3 py-3 border rounded-xl cursor-pointer hover:bg-purple-400/10 transition-colors"
+            <button
+              onClick={toggleLang}
+              className="text-[var(--text-main)] border-[var(--border)] bg-[var(--nav-bg)]/5 flex gap-2 items-center px-3 py-3 border rounded-xl cursor-pointer hover:bg-purple-400/10 transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -110,35 +103,16 @@ function Header() {
                 <path d="M2 12h20" />
               </svg>
               <span className="flex gap-3 text-sm items-center min-w-[50px]">
-                {language}
+                {i18n.language === "en" ? "English" : "العربية"}{" "}
               </span>
-              <i
-                className={`fa-solid fa-angle-down transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-              ></i>
-            </div>
-
-            {/* القائمة المنسدلة (Dropdown) */}
-            {isOpen && (
-              <div className="absolute mt-2 w-full left-0 bg-white/5 border border-white/10 rounded-xl overflow-hidden z-50 shadow-xl">
-                <div
-                  onClick={() =>
-                    selectLanguage(
-                      language === "English" ? "Arabic" : "English",
-                    )
-                  }
-                  className="px-4 py-3 text-sm text-gray-300  hover:bg-purple-400/10 hover:text-white cursor-pointer transition-colors"
-                >
-                  {language === "English" ? "Arabic" : "English"}
-                </div>
-              </div>
-            )}
+            </button>
           </div>
           <button
             onClick={toggleLang}
-            className="text-gray-300 border-white/10  bg-white/5 hover:bg-purple-400/10 transition duration-300 p-2 w-10 h-10 xl:w-11 xl:h-11 hidden sm:flex md:hidden justify-center cursor-pointer items-center border rounded-full"
+            className="text-[var(--text-main)] border-[var(--border)] bg-[var(--nav-bg)]/5 hover:bg-purple-400/10 transition duration-300 p-2 w-10 h-10 xl:w-11 xl:h-11 hidden sm:flex md:hidden justify-center cursor-pointer items-center border rounded-full"
           >
             <span className="flex justify-between items-center w-5 h-5">
-              {lang === "en" ? "AR" : "EN"}
+              {i18n.language === "en" ? "EN" : "AR"}{" "}
             </span>
           </button>
           {/* Theme Toggle */}
@@ -148,7 +122,7 @@ function Header() {
               localStorage.setItem("currentMode", newMode);
               setTheme(newMode);
             }}
-            className="text-gray-300 border-white/10  bg-white/5 hover:bg-purple-400/10 transition duration-300 p-2 w-10 h-10 xl:w-11 xl:h-11 hidden sm:flex justify-center cursor-pointer items-center border rounded-full"
+            className="text-[var(--text-main)] border-[var(--border)] bg-[var(--nav-bg)]/5 hover:bg-purple-400/10 transition duration-300 p-2 w-10 h-10 xl:w-11 xl:h-11 hidden sm:flex justify-center cursor-pointer items-center border rounded-full"
           >
             {theme === "dark" ? (
               <svg
@@ -173,7 +147,7 @@ function Header() {
 
           <button
             onClick={() => setMobileMenu(!mobileMenu)}
-            className="relative cursor-pointer block lg:hidden p-2 rounded-lg text-gray-300 border border-white/10 hover:bg-purple-400/10  bg-white/5  transition duration-300  w-10 h-10"
+            className="relative cursor-pointer block lg:hidden p-2 rounded-lg text-[var(--text-main)] border border-[var(--border)] bg-[var(--nav-bg)]/5 hover:bg-purple-400/10  transition duration-300  w-10 h-10"
           >
             <svg
               viewBox="0 0 448 512"
@@ -200,38 +174,108 @@ function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden absolute top-full left-1/2 -translate-x-1/2  w-[calc(100%-3rem)] bg-[#020617] transition-all duration-300 overflow-hidden ${mobileMenu ? "max-h-screen border-b border-indigo-500/20 border border-t-0 border-white/10 rounded-b-xl " : "max-h-0"}`}
+        className={`lg:hidden absolute top-full p-6 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] bg-[var(--bg-primary)] transition-all duration-300 overflow-hidden ${
+          mobileMenu
+            ? "max-h-screen border-b border-t-0 border-[var(--border)] rounded-b-xl shadow-2xl opacity-100"
+            : "max-h-0 opacity-0 pointer-events-none"
+        }`}
       >
-        <nav className="flex flex-col p-6 gap-4">
-          <a
-            href="#Home"
-            onClick={() => setMobileMenu(false)}
-            className="text-gray-300 hover:text-indigo-400 py-2 border-b border-white/5"
-          >
-            Home
-          </a>
-          <a
-            href="#About"
-            onClick={() => setMobileMenu(false)}
-            className="text-gray-300 hover:text-indigo-400 py-2 border-b border-white/5"
-          >
-            About
-          </a>
-          <a
-            href="#Projects"
-            onClick={() => setMobileMenu(false)}
-            className="text-gray-300 hover:text-indigo-400 py-2 border-b border-white/5"
-          >
-            Projects
-          </a>
-          <a
-            href="#Contact"
-            onClick={() => setMobileMenu(false)}
-            className="text-gray-300 hover:text-indigo-400 py-2"
-          >
-            Contact
-          </a>
+        <nav className="flex flex-col  gap-2 text-[var(--text-primary)]">
+          {[
+            { id: "Home", label: t("header.home") || "Home" },
+            { id: "About", label: t("header.about") || "About" },
+            { id: "Projects", label: t("header.projects") || "Projects" },
+            {
+              id: "Certificates",
+              label: t("header.certificates") || "Certificates",
+            },
+            { id: "Contact", label: t("header.contact") || "Contact" },
+          ].map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={() => {
+                setMobileMenu(false);
+                setActiveSection(item.id);
+              }}
+              className={`flex items-center justify-between py-3 px-4 rounded-xl transition-all duration-300 ${
+                activeSection === item.id
+                  ? "bg-purple-500/10 text-purple-400 font-bold translate-x-2" // شكل الـ Active
+                  : "hover:bg-white/5 hover:text-indigo-400 translate-x-0" // شكل الـ Normal
+              }`}
+            >
+              <span className="flex items-center gap-3">
+                {/* النقطة المضيئة تظهر فقط بجانب السكشن النشط */}
+                {activeSection === item.id && (
+                  <span className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_10px_#a855f7]"></span>
+                )}
+                {item.label}
+              </span>
+
+              {/* سهم يظهر في الـ Active فقط */}
+              {activeSection === item.id && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              )}
+            </a>
+          ))}
         </nav>
+        <div className="w-full border-t-2 border-[var(--border)] border-dashed py-2"></div>
+        <div className="flex gap-3 ">
+          <button
+            onClick={() => {
+              toggleLang(); // الوظيفة الأولى: تغيير اللغة
+              setMobileMenu(false); // الوظيفة الثانية: قفل القائمة
+            }}
+            className="text-[var(--text-main)] border-[var(--border)] bg-[var(--nav-bg)]/5 hover:bg-purple-400/10 transition duration-300 p-2 w-10 h-10 xl:w-11 xl:h-11  flex md:hidden justify-center cursor-pointer items-center border rounded-full"
+          >
+            <span className="flex justify-between items-center w-5 h-5">
+              {i18n.language === "en" ? "EN" : "AR"}{" "}
+            </span>
+          </button>
+          {/* Theme Toggle */}
+          <div
+            onClick={() => {
+              const newMode = theme === "dark" ? "light" : "dark";
+              localStorage.setItem("currentMode", newMode);
+              setTheme(newMode);
+              setMobileMenu(false); // الوظيفة الثانية: قفل القائمة
+            }}
+            className="text-[var(--text-main)] border-[var(--border)] bg-[var(--nav-bg)]/5 hover:bg-purple-400/10 transition duration-300 p-2 w-10 h-10 xl:w-11 xl:h-11 flex justify-center cursor-pointer items-center border rounded-full"
+          >
+            {theme === "dark" ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                className="w-6 h-6"
+                fill="currentColor"
+              >
+                <path d="M12.3 4.9c.4-.2.6-.7.5-1.1s-.6-.8-1.1-.8C6.8 3.1 3 7.1 3 12c0 5 4 9 9 9 3.8 0 7.1-2.4 8.4-5.9.2-.4 0-.9-.4-1.2-.4-.3-.9-.2-1.2.1-1 .9-2.3 1.4-3.7 1.4-3.1 0-5.7-2.5-5.7-5.7 0-1.9 1.1-3.8 2.9-4.8zm2.8 12.5c.5 0 1 0 1.4-.1-1.2 1.1-2.8 1.7-4.5 1.7-3.9 0-7-3.1-7-7 0-2.5 1.4-4.8 3.5-6-.7 1.1-1 2.4-1 3.8-.1 4.2 3.4 7.6 7.6 7.6z" />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                className="w-6 h-6"
+                fill="currentColor"
+              >
+                <path d="M7 12c0 2.8 2.2 5 5 5s5-2.2 5-5-2.2-5-5-5-5 2.2-5 5zm5-3c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3zm1-4V3c0-.6-.4-1-1-1s-1 .4-1 1v2c0 .6.4 1 1 1s1-.4 1-1zm6.1-.1c-.4-.4-1-.4-1.4 0l-1.4 1.4c-.4.4-.4 1 0 1.4.2.2.5.3.7.3s.5-.1.7-.3l1.4-1.4c.4-.3.4-1 0-1.4zM21 11h-2c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1zm-3.3 5.2c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l1.4 1.4c.2.2.5.3.7.3s.5-.1.7-.3c.4-.4.4-1 0-1.4l-1.4-1.4zM11 19v2c0 .6.4 1 1 1s1-.4 1-1v-2c0-.6-.4-1-1-1s-1 .4-1 1zm-6.1.1c.2.2.5.3.7.3s.5-.1.7-.3l1.4-1.4c.4-.4.4-1 0-1.4s-1-.4-1.4 0l-1.4 1.4c-.4.3-.4 1 0 1.4zM2 12c0 .6.4 1 1 1h2c.6 0 1-.4 1-1s-.4-1-1-1H3c-.6 0-1 .4-1 1zm4.3-7.1c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l1.4 1.4c.2.3.5.4.8.4s.5-.1.7-.3c.4-.4.4-1 0-1.4L6.3 4.9z" />
+              </svg>
+            )}
+          </div>
+        </div>
       </div>
     </header>
   );

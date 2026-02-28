@@ -16,70 +16,109 @@ body {
 @theme {
   --font-DGAsca: "DGAsca", sans-serif;
   --font-poppins: "Poppins", sans-serif;
+  --font-code: "Fira Code", monospace;
+  --bg-main-gradient: linear-gradient(
+    135deg,
+    #c084fc 0%,
+    #a78bfa 50%,
+    #67e8f9 100%
+  );
 }
 
 :root {
-  --main-icon: #a855f7;
+  --primary: #c084fc;
 
   /* Background Color */
   --bg-primary: #020617;
+  --bg-secondary: #1e293b;
+  --header-bg: #020617;
 
-  --bg-primary-light: rgb(255, 255, 255);
-
-  /* Background Cards */
-  --bg-card-dark: rgb(30, 30, 31, 0.5);
-
-  --bg-card-light: rgb(30, 30, 31, 0.5);
+  /* Borders */
+  --border: rgba(63, 63, 70, 0.4);
 
   /* Text Color */
-  --text-title-dark: rgb(203, 213, 225);
-  --text-subtitle-dark: rgba(159, 159, 169, 0.8);
-  --text-main-dark: rgb(255, 255, 255);
+  --text-main: rgb(255, 255, 255);
+  --text-primary: white;
+  --text-secondary: #94a3b8;
+  --text-title: rgb(203, 213, 225);
+  --text-subtitle: rgba(159, 159, 169, 0.8);
+  --social-icons: black;
 
-  --text-title-light: rgb(203, 213, 225);
-  --text-subtitle-light: rgba(159, 159, 169, 0.8);
-  --text-main-light: rgb(255, 255, 255);
-
+  /* Background Cards */
+  --bg-card: rgb(255, 255, 255, 0.05);
+  --nav-bg: white;
   /* =================================== */
-  --primary: #c084fc;
 
   --gradient-1: linear-gradient(135deg, #c084fc 0%, #a78bfa 50%, #67e8f9 100%);
   --gradient-2: linear-gradient(135deg, #67e8f9 0%, #a78bfa 50%, #fbbf24 100%);
   --gradient-3: linear-gradient(135deg, #86efac 0%, #67e8f9 100%);
-
 }
-.light{
-    --bg-primary: #eee;
+.light {
+  --primary: #7e22ce;
 
+  /* Background Color */
+  --bg-primary: #fff;
+  /* --bg-primary: #d6d6d6; */
+  --bg-secondary: #f8fafc;
+  --header-bg: #f5f5f5;
+
+  /* Borders */
+  --border: rgba(202, 202, 202, 0.518);
+
+  /* Text Color */
+  --text-main: rgb(74, 85, 101);
+  --text-primary: black;
+  --text-secondary: #768293;
+  --text-title: rgb(0, 0, 0);
+  --text-subtitle: rgba(159, 159, 169, 0.8);
+  --social-icons: white;
+
+  /* Background Cards */
+  --nav-bg: black;
+  --bg-card: rgb(0, 0, 0, 0.05);
+
+  --gradient-1: linear-gradient(135deg, #9333ea 0%, #7c3aed 50%, #0891b2 100%);
 }
 
-@theme {
-  --color-primary: #c084fc;
-  --font-code: "Fira Code", monospace;
-  --gradient-1: linear-gradient(135deg, #c084fc 0%, #6366f1 100%);
-
+@utility text-gradient {
+  background: var(--bg-main-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
 }
 
-
-
-
-/* Icon - Spin */
+/* Icon - Spin & Rotate */
 @keyframes spin-once {
   0% {
     transform: rotate(0deg) scale(1);
   }
 
   50% {
-    transform: rotate(180deg) scale(1.25);
+    transform: rotate(-180deg) scale(1.25);
   }
 
   100% {
-    transform: rotate(360deg) scale(1);
+    transform: rotate(-360deg) scale(1);
   }
 }
 
 .animate-spin-once {
-  animation: spin-once 1.2s ease-in-out forwards;
+  animation: spin-once 1.5s ease-in-out forwards;
+}
+
+@keyframes rotate-once {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate-once {
+  /* 2s هي سرعة اللفة، تقدر تخليها 3s لو عايزها أهدى */
+  animation: rotate-once 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 /* Grid - Background */
@@ -138,9 +177,7 @@ body {
   }
 }
 
-
-
-.name-value {
+.text-gradient {
   background: var(--gradient-1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

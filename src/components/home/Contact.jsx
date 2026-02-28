@@ -9,7 +9,7 @@ function Contact() {
   return (
     <section
       id="Contact"
-      className=" text-[var(--text-main-dark)]"
+      className=" text-[var(--text-main)]"
     >
       <div className="pt-20  space-y-12 overflow-hidden">
         <div
@@ -31,10 +31,10 @@ function Contact() {
       
             {/* Info */}
             <div className="mx-auto max-w-xl text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--text-title-dark)]">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--text-title)]">
                 Get In Touch
               </h2>
-              <p className="mx-auto mt-6 max-w-xl text-lg text-[var(--text-subtitle-dark)]">
+              <p className="mx-auto mt-6 max-w-xl text-lg text-[var(--text-subtitle)]">
                 Have a project in mind or want to discuss a potential
                 collaboration? Feel free to reach out to me.
               </p>
@@ -44,7 +44,7 @@ function Contact() {
 
         <div className="relative z-0 flex flex-col md:flex-row justify-center md:justify-between items-center px-[3%] md:px-[10%]">
           <div data-aos="fade-up">
-            <div className="bg-[var(--bg-card-dark)] space-y-5 border border-zinc-700 p-10 lg:w-[800px] rounded-2xl hover:border-cyan-500 hover:-translate-y-2 transition duration-300 hover:shadow-[0_0_60px_rgba(34,211,238,0.9)]">
+            <div className="bg-[var(--bg-card)] space-y-5 border border-zinc-700 p-10 lg:w-[800px] rounded-2xl hover:border-cyan-500 hover:-translate-y-2 transition duration-300 hover:shadow-[0_0_60px_rgba(34,211,238,0.9)]">
               <div className="space-y-5  rounded-2xl">
                 <h2 className="font-bold text-2xl">Contact Information</h2>
                 <div className="flex space-y-3 space-x-5 flex-wrap justify-between">

@@ -43,37 +43,46 @@ const Loader = ({ onFinished }) => {
       }`}
     >
       <div className="text-center px-4">
-        
         {/* النصوص مع تأثيرات AOS */}
         <div className="font-mono text-[1.1rem] md:text-[1.2rem] text-purple-500 mb-8 space-y-2 opacity-80">
           <div data-aos="fade-up" data-aos-delay="100">
             const portfolio = {"{"}
           </div>
-          
+
           <div className=" border-slate-800 pl-4">
-            <div data-aos="fade-up" data-aos-delay="250" className="text-cyan-400">
+            <div
+              data-aos="fade-up"
+              data-aos-delay="250"
+              className="text-cyan-400"
+            >
               loading: <span className="text-orange-400">true</span>,
             </div>
-            <div data-aos="fade-up" data-aos-delay="400" className="text-cyan-400">
-              status: <span className="text-emerald-400">'initializing...'</span>
+            <div
+              data-aos="fade-up"
+              data-aos-delay="400"
+              className="text-cyan-400"
+            >
+              status:{" "}
+              <span className="text-emerald-400">'initializing...'</span>
             </div>
           </div>
-          
+
           <div data-aos="fade-up" data-aos-delay="550">
             {"}"};
           </div>
         </div>
 
         {/* Spinner */}
-        <div className="my-8 relative" >
+        <div className="my-8 relative" data-aos="fade-up" data-aos-delay="700">
           <div className="w-16 h-16 border-4 border-slate-800 border-t-purple-500 border-r-cyan-400 rounded-full animate-spin mx-auto"></div>
           <div className="absolute inset-0 w-16 h-16 bg-purple-500/10 blur-xl rounded-full mx-auto"></div>
         </div>
 
         {/* Progress Bar Container */}
-        <div 
+        <div
+          data-aos="fade-up"
+          data-aos-delay="700"
           className="w-[250px] md:w-[300px] h-1.5 bg-slate-800 rounded-full mx-auto overflow-hidden shadow-inner"
-     
         >
           <div
             className="h-full bg-gradient-to-r from-purple-600 via-cyan-400 to-emerald-400 shadow-[0_0_15px_rgba(168,85,247,0.5)] transition-all duration-300 ease-out"
@@ -82,7 +91,11 @@ const Loader = ({ onFinished }) => {
         </div>
 
         {/* Percentage Text */}
-        <div className="font-mono text-cyan-400 mt-4 text-sm tracking-widest font-bold">
+        <div
+          data-aos="fade-up"
+          data-aos-delay="700"
+          className="font-mono text-cyan-400 mt-4 text-sm tracking-widest font-bold"
+        >
           {Math.floor(progress)}%
         </div>
       </div>

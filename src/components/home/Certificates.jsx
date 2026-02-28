@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import cert2 from "../../assets/images/certificates/cert2.png";
 import cert1 from "../../assets/images/certificates/cert1.jpg";
 import cert3 from "../../assets/images/certificates/cert3.png";
@@ -12,16 +10,20 @@ import cert9 from "../../assets/images/certificates/cert9.png";
 import cert10 from "../../assets/images/certificates/cert10.png";
 import cert11 from "../../assets/images/certificates/cert11.jpg";
 
+import { useState } from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, EffectCoverflow } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
+import { useTranslation } from "react-i18next";
 
 function Certificates() {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
+  const { t, i18n } = useTranslation();
 
   const certificates = [
     { src: cert1, title: "React Frontend Web Developer" },
@@ -59,13 +61,12 @@ function Certificates() {
         ></div>
 
         <div className="relative isolate">
- 
           {/* Info */}
           <div className="mx-auto max-w-xl text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--text-title-dark)]">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--text-title)]">
               My Certificates
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg text-[var(--text-subtitle-dark)]">
+            <p className="mx-auto mt-6 max-w-xl text-lg text-[var(--text-subtitle)]">
               Here are some of my certificates that reflect my continuous
               learning journey and commitment to professional growth.
             </p>
@@ -89,6 +90,7 @@ function Certificates() {
         pagination={{ clickable: true }}
         modules={[Pagination, EffectCoverflow]}
         className="max-w-7xl mx-auto px-4"
+        key={i18n.language}
         data-aos="fade-up"
         breakpoints={{
           0: {

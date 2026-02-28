@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const Nav = () => {
   // بنحدد العنصر النشط افتراضياً (0 يعني أول واحد وهو Home)
@@ -10,13 +11,14 @@ const Nav = () => {
     transform: "translateX(0px)",
     opacity: 1, // خليه 1 عشان يظهر من أول ثانية
   });
+  const { t, i18n } = useTranslation();
 
   const menuItems = [
-    { name: "Home", href: "#Home" },
-    { name: "About", href: "#About" },
-    { name: "Projects", href: "#Projects" },
-    { name: "Certificates", href: "#Certificates" },
-    { name: "Contact", href: "#Contact" },
+    { name: t("header.home"), href: "#Home" },
+    { name: t("header.about"), href: "#About" },
+    { name: t("header.projects"), href: "#Projects" },
+    { name: t("header.certificates"), href: "#Certificates" },
+    { name: t("header.contact"), href: "#Contact" },
   ];
 
   // وظيفة لحساب الأبعاد والمكان بناءً على العنصر
@@ -85,12 +87,12 @@ const Nav = () => {
   return (
     <nav className="hidden lg:flex justify-center items-center rounded-xl">
       <div
-        className="relative hidden md:flex bg-white/5 border border-white/10 rounded-xl p-1 backdrop-blur-md"
+        className="relative hidden md:flex bg-[var(--nav-bg)]/5 border border-[var(--border)] rounded-xl p-1 backdrop-blur-md"
         onMouseLeave={handleMouseLeave}
       >
         {/* المربع البنفسجي المتحرك */}
         <div
-          className="absolute top-1 bottom-1 left-1 bg-purple-600/30 rounded-lg transition-all duration-300 ease-in-out pointer-events-none"
+          className="absolute top-1 bottom-1 left-1 bg-[var(--primary)]/30 rounded-lg transition-all duration-300 ease-in-out pointer-events-none"
           style={{
             width: `${hoverStyle.width}px`,
             transform: hoverStyle.transform,
@@ -98,7 +100,7 @@ const Nav = () => {
           }}
         />
 
-        <ul className="flex relative z-10 text-gray-300 font-medium">
+        <ul className="flex relative z-10 text-[var(--text-main)] font-medium">
           {menuItems.map((item, index) => (
             <li key={index} id={`nav-item-${index}`}>
               <a
@@ -106,7 +108,9 @@ const Nav = () => {
                 onMouseEnter={handleMouseEnter}
                 onClick={() => setActiveIndex(index)}
                 className={`block px-6 py-2 cursor-pointer transition-colors duration-200 ${
-                  activeIndex === index ? "text-white" : "hover:text-white"
+                  activeIndex === index
+                    ? "text-[var(--nav-bg)]"
+                    : "hover:text-[var(--nav-bg)]"
                 }`}
               >
                 {item.name}

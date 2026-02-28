@@ -63,7 +63,7 @@ function App() {
                 opacity: showScrollBtn ? 1 : 0,
                 pointerEvents: showScrollBtn ? "auto" : "none",
               }}
-              className="fixed bottom-5 right-5 w-10 h-10 shadow-lg flex justify-center items-center rounded-full transition-all duration-700 border border-blue-500/20 text-blue-500 bg-[#020617]/50 backdrop-blur-sm z-50"
+              className="fixed bottom-5 right-5 w-10 h-10 shadow-xl flex justify-center items-center rounded-full transition-all duration-700 border border-[var(--border)] text-[var(--primary)] bg-[var(--bg-card)] backdrop-blur-sm z-50"
             >
               <i className="fas fa-arrow-up"></i>
             </a>

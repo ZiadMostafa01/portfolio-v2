@@ -13,6 +13,7 @@ const tools = "bg-zinc-600 text-center rounded-full px-3";
 
 const myProjects = [
   {
+    id: 6,
     imgPath: cardImage6,
     projectTitle: "Karas Veterinary Clinic",
     description:
@@ -24,9 +25,9 @@ const myProjects = [
     github: "",
   },
   {
+    id: 5,
     imgPath: cardImage5,
     projectTitle: "Pawelle Veterinary Clinic",
-
     description:
       "A modern pet care platform developed for a professional company, streamlining access to veterinary clinics and essential pet services.",
     state: checkTools.completed,
@@ -36,6 +37,7 @@ const myProjects = [
     github: "https://github.com/ZiadMostafa01/vet-clinic",
   },
   {
+    id: 4,
     imgPath: cardImage4,
     projectTitle: "Medical Healthcare",
     description:
@@ -53,6 +55,7 @@ const myProjects = [
     github: "https://github.com/TeamDEPI/mega",
   },
   {
+    id: 3,
     imgPath: cardImage3,
     projectTitle: "Taha Fawzi – Personal Portfolio Website",
     description:
@@ -64,6 +67,7 @@ const myProjects = [
     github: "https://github.com/ZiadMostafa01/Taha-Portfolio",
   },
   {
+    id: 2,
     imgPath: cardImage2,
     projectTitle: "My Portfolio",
     description:
@@ -75,6 +79,7 @@ const myProjects = [
     github: "https://github.com/ZiadMostafa01/Portfolio",
   },
   {
+    id: 1,
     imgPath: cardImage,
     projectTitle: "Educational Platform",
     description:
@@ -89,10 +94,7 @@ const myProjects = [
 
 function Projects() {
   return (
-    <section
-      id="Projects"
-      className="text-[var(--text-main-dark)]"
-    >
+    <section id="Projects" className="text-[var(--text-main)]">
       <div className="py-20 space-y-24">
         <div
           data-aos="fade-up"
@@ -111,13 +113,12 @@ function Projects() {
           ></div>
 
           <div className="relative isolate">
-  
             {/* Info */}
             <div className="mx-auto max-w-xl text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--text-title-dark)]">
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--text-title)]">
                 My Projects
               </h2>
-              <p className="mx-auto mt-6 max-w-xl text-lg text-[var(--text-subtitle-dark)]">
+              <p className="mx-auto mt-6 max-w-xl text-lg text-[var(--text-subtitle)]">
                 Here are some of my recent projects that showcase my skills and
                 expertise in web development.
               </p>
@@ -128,10 +129,10 @@ function Projects() {
         <div className="relative z-0 px-2 flex flex-wrap justify-center items-start gap-10">
           {myProjects.map((item) => {
             return (
-              <div data-aos="zoom-in">
+              <div key={item.id} data-aos="zoom-in">
                 <div
                   key={item.projectTitle}
-                  className="bg-[var(--bg-card-dark)] border hover:border-cyan-500 transition duration-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.7)] border-zinc-700 rounded-lg w-full max-w-[460px]"
+                  className="bg-[var(--bg-card)] border hover:border-cyan-500 transition duration-300 hover:shadow-[0_0_20px_rgba(34,211,238,0.7)] border-zinc-700 rounded-lg w-full max-w-[460px]"
                 >
                   <div className="">
                     <img

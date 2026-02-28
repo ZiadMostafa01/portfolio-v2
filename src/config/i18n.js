@@ -1,7 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import en from "../assets/data/en.json";
-import ar from "../assets/data/ar.json";
+import en from "../data/en.json";
+import ar from "../data/ar.json";
 
 i18n.use(initReactI18next).init({
   resources: {

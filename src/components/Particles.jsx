@@ -34,7 +34,7 @@ const Particles = () => {
             {particlesData.map((p) => (
                 <span 
                     key={p.id}
-                    className={`absolute font-code text-primary/70 whitespace-nowrap ${p.animationClass}`}
+                    className={`absolute font-code text-[var(--primary)]/70 whitespace-nowrap ${p.animationClass}`}
                     style={{
                         left: p.left,
                         top: p.initialTop,

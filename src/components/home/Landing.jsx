@@ -111,6 +111,7 @@ const Landing = () => {
               className="flex"
               data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}
               data-aos-delay="700"
+              data-aos-offset="0"
             >
               {" "}
               <a
@@ -134,6 +135,7 @@ const Landing = () => {
               className="flex"
               data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}
               data-aos-delay="800"
+              data-aos-offset="0"
             >
               {" "}
               <a
@@ -170,6 +172,7 @@ const Landing = () => {
               className="flex"
               data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}
               data-aos-delay="900"
+              data-aos-offset="0"
             >
               <a
                 href="https://www.linkedin.com/in/ziadmostafa-dev/"
@@ -203,6 +206,7 @@ const Landing = () => {
               className="flex"
               data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}
               data-aos-delay="1000"
+              data-aos-offset="0"
             >
               {" "}
               <a
@@ -233,6 +237,7 @@ const Landing = () => {
         {/* Image Side */}
         <div
           data-aos="fade-up"
+          data-aos-offset="0"
           key={i18n.language}
           className="relative flex justify-center items-center"
         >

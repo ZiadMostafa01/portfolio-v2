@@ -1,64 +1,19 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, } from "react";
 import Nav from "./Nav";
-import { useTranslation } from "react-i18next";
-
+import { useTheme } from "../../context/ThemeContext";
+import { useLang } from "../../context/LanguageContext";
+import { useScroll } from "../../hooks/useScroll";
 function Header() {
   const [mobileMenu, setMobileMenu] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("Home"); // لمتابعة السيكشن النشط
-
-  const [theme, setTheme] = useState(
-    localStorage.getItem("currentMode") ?? "dark",
-  );
-
-  useEffect(() => {
-    if (theme === "light") {
-      document.body.classList.remove("dark");
-      document.body.classList.add("light");
-    } else {
-      document.body.classList.remove("light");
-      document.body.classList.add("dark");
-    }
-  }, [theme]);
-  // مراقبة السكرول عشان لون الهيدر
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
-
-      // منطق بسيط لتحديد السيكشن النشط يدوياً
-      const sections = ["Home", "About", "Projects", "Certificates", "Contact"];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top >= 0 && rect.top <= 300) {
-            setActiveSection(section);
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const { t, i18n } = useTranslation();
-  const toggleLang = () => {
-    const newLang = i18n.language === "en" ? "ar" : "en";
-
-    i18n.changeLanguage(newLang);
-    localStorage.setItem("lang", newLang);
-    document.documentElement.dir = newLang === "ar" ? "rtl" : "ltr";
-  };
-  useEffect(() => {
-    const savedLang = localStorage.getItem("lang") || "en";
-
-    if (i18n.language !== savedLang) {
-      i18n.changeLanguage(savedLang);
-    }
-
-    document.documentElement.dir = savedLang === "ar" ? "rtl" : "ltr";
-  }, []);
+  const { theme, toggleTheme } = useTheme();
+  const { toggleLang, currentLang, t } = useLang(); // كل ما يخص اللغة هنا
+  const { scrolled, activeSection, setActiveSection } = useScroll([
+    "Home",
+    "About",
+    "Projects",
+    "Certificates",
+    "Contact",
+  ]);
 
   return (
     <header
@@ -76,7 +31,7 @@ function Header() {
         </a>
 
         {/* Desktop Navigation */}
-        <div key={i18n.language} className="flex items-center gap-3">
+        <div key={currentLang} className="flex items-center gap-3">
           <Nav />
 
           <div className="relative hidden md:inline-block text-left">
@@ -103,7 +58,7 @@ function Header() {
                 <path d="M2 12h20" />
               </svg>
               <span className="flex gap-3 text-sm items-center min-w-[50px]">
-                {i18n.language === "en" ? "English" : "العربية"}{" "}
+                {currentLang === "en" ? "English" : "العربية"}{" "}
               </span>
             </button>
           </div>
@@ -112,16 +67,13 @@ function Header() {
             className="text-[var(--text-main)] border-[var(--border)] bg-[var(--nav-bg)]/5 hover:bg-purple-400/10 transition duration-300 p-2 w-10 h-10 xl:w-11 xl:h-11 hidden sm:flex md:hidden justify-center cursor-pointer items-center border rounded-full"
           >
             <span className="flex justify-between items-center w-5 h-5">
-              {i18n.language === "en" ? "EN" : "AR"}{" "}
+              {currentLang === "en" ? "EN" : "AR"}{" "}
             </span>
           </button>
           {/* Theme Toggle */}
           <div
-            onClick={() => {
-              const newMode = theme === "dark" ? "light" : "dark";
-              localStorage.setItem("currentMode", newMode);
-              setTheme(newMode);
-            }}
+            // الكود الجديد هيبقى كدا:
+            onClick={toggleTheme}
             className="text-[var(--text-main)] border-[var(--border)] bg-[var(--nav-bg)]/5 hover:bg-purple-400/10 transition duration-300 p-2 w-10 h-10 xl:w-11 xl:h-11 hidden sm:flex justify-center cursor-pointer items-center border rounded-full"
           >
             {theme === "dark" ? (
@@ -242,17 +194,12 @@ function Header() {
             className="text-[var(--text-main)] border-[var(--border)] bg-[var(--nav-bg)]/5 hover:bg-purple-400/10 transition duration-300 p-2 w-10 h-10 xl:w-11 xl:h-11  flex md:hidden justify-center cursor-pointer items-center border rounded-full"
           >
             <span className="flex justify-between items-center w-5 h-5">
-              {i18n.language === "en" ? "EN" : "AR"}{" "}
+              {currentLang === "en" ? "EN" : "AR"}{" "}
             </span>
           </button>
           {/* Theme Toggle */}
           <div
-            onClick={() => {
-              const newMode = theme === "dark" ? "light" : "dark";
-              localStorage.setItem("currentMode", newMode);
-              setTheme(newMode);
-              setMobileMenu(false); // الوظيفة الثانية: قفل القائمة
-            }}
+            onClick={toggleTheme}
             className="text-[var(--text-main)] border-[var(--border)] bg-[var(--nav-bg)]/5 hover:bg-purple-400/10 transition duration-300 p-2 w-10 h-10 xl:w-11 xl:h-11 flex justify-center cursor-pointer items-center border rounded-full"
           >
             {theme === "dark" ? (

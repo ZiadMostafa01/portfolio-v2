@@ -13,6 +13,7 @@
   },
   "homepage": "https://ZiadMostafa01.github.io/Portfolio",
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@formspree/react": "^3.0.0",
     "@tailwindcss/vite": "^4.1.11",
     "aos": "^2.3.4",
